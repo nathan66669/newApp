@@ -1,0 +1,21 @@
+{{outlet}}
+<h1>Proud Clans</h1>
+{{#each model as |proudclan|}}
+	<div class="well">
+				<small>clan Name: {{proudclan.clanName}}  Clan Tag: {{#link-to 'tasks.edit' task.id}}{{proudclan.clanTag}}{{/link-to}}  Join Date: {{format-date proudclan.dateJoined}} <button {{action 'deleteTask' task.id}} class="btn btn-danger">Delete</button></small>
+	</div>
+{{/each}}
+{{models-table
+          data=model
+          columns=columns}}
+		  columns: [
+  {
+    "proudclan.clanName": "Clan Name"
+  },
+  {
+    "proudclan.clanTag": "Clan Tag"
+  },
+  {
+    "proudclan.dateJoined": "lastName"
+  }
+]
