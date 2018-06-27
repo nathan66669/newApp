@@ -1,35 +1,32 @@
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-        aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
+
+    
 
 
-        {{#bs-navbar as |navbar|}}
+        {{#bs-navbar type="dark" backgroundColor="dark" collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
         <div class="navbar-header">
           {{navbar.toggle}} 
-          {{#link-to "tasks" class="navbar-brand"}}Testing Website{{/link-to}}
+          {{#link-to "tasks" class="navbar-brand"}}<a class="navbar-brand" href="#">
+            <img alt="Brand" src="/assets/images/x-FWAsmall.jpg">
+          </a>{{/link-to}}
+          
         </div>
           {{#navbar.content}} 
           {{#navbar.nav as |nav|}} 
           {{#nav.item}}{{#nav.link-to 'tasks'}}Home{{/nav.link-to}}{{/nav.item}} 
           {{#nav.item}}{{#nav.link-to 'tasks.new'}}New Task{{/nav.link-to}}{{/nav.item}} 
           {{#nav.item}}{{#nav.link-to 'clans'}}Clans{{/nav.link-to}} {{/nav.item}} 
-          {{#nav.item}}{{#nav.link-to  'clans.new'}}New Clan{{/nav.link-to}}{{/nav.item}} 
+          {{#nav.item}}{{#nav.link-to 'clans.new'}}New Clan{{/nav.link-to}}{{/nav.item}} 
           {{#nav.item}}{{#nav.link-to 'proudclans'}}Proud List{{/nav.link-to}}{{/nav.item}}
-        {{#nav.dropdown as |dd|}} {{#dd.toggle}}Dropdown
+          
+          {{#nav.dropdown as |dd|}} {{#dd.toggle}}Dropdown
         <span class="caret"></span>{{/dd.toggle}} {{#dd.menu as |ddm|}} {{#ddm.item}}{{#ddm.link-to "tasks"}}Home{{/ddm.link-to}}{{/ddm.item}}
         {{#ddm.item}}{{#ddm.link-to "tasks"}}Navbars{{/ddm.link-to}}{{/ddm.item}} {{/dd.menu}} 
-        {{/nav.dropdown}} {{/navbar.nav}}
+        {{/nav.dropdown}} 
+        {{/navbar.nav}}
         {{/navbar.content}} 
         {{/bs-navbar}}
-      </button>
-    </div>
-  </div>
-</nav>
+    
 <div class="container">
   <div class="row">
     <div class="col-md-12">
