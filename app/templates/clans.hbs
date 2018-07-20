@@ -3,9 +3,12 @@
 {{#each model as |clan|}}
 {{clan.tag}}
 	<div class="well">
-		<h4>{{#link-to 'clans.edit' clan.id}}{{clan.tag}}{{/link-to}}</h4>
-		<small>Date Added: {{format-date clan.date}}</small>
-		<p>{{clan.adderName}}</p>
-		<button {{action 'deleteTask' clan.id}} class="btn btn-danger">Delete</button>
+		<h4>{{#link-to 'clans.edit' clan.id}}{{clan.id}}{{/link-to}}</h4>
+		{{#each clan.cwar as |cwar|}}
+		{{cwar.id}}
+		
+		{{/each}}
+<p>{{clan.adderName}}</p>
+		  <button {{action 'deleteTask' clan.id}} class="btn btn-danger">Delete</button>
 	</div>
 {{/each}}
